@@ -6,7 +6,7 @@
 	╚══════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝╚══════╝
 
 
-Looksie is a python script that asks what you would like to search for and then runs search queries against:
+Looksie is a Python script that asks what you would like to search for and then runs search queries against:
 
 - Google
 - DuckDuckGo
