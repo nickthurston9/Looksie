@@ -1,25 +1,25 @@
 import webbrowser
-from tkinter import * 
-import tkinter.messagebox 
+from tkinter import *
+import tkinter.messagebox
 
 
-print("""
-==========██╗      ██████╗  ██████╗ ██╗  ██╗███████╗██╗███████╗=========
-==========██║     ██╔═══██╗██╔═══██╗██║ ██╔╝██╔════╝██║██╔════╝=========
-==========██║     ██║   ██║██║   ██║█████╔╝ ███████╗██║█████╗  =========
-==========██║     ██║   ██║██║   ██║██╔═██╗ ╚════██║██║██╔══╝  =========
-==========███████╗╚██████╔╝╚██████╔╝██║  ██╗███████║██║███████╗=========
-==========╚══════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝╚══════╝=========
-""")
+print('''
+OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+*==========██╗      ██████╗  ██████╗ ██╗  ██╗███████╗██╗███████╗=========*
+*==========██║     ██╔═══██╗██╔═══██╗██║ ██╔╝██╔════╝██║██╔════╝=========*
+*==========██║     ██║ * ██║██║ * ██║█████╔╝ ███████╗██║█████╗  =========*
+*==========██║     ██║   ██║██║   ██║██╔═██╗ ╚════██║██║██╔══╝  =========*
+*==========███████╗╚██████╔╝╚██████╔╝██║  ██╗███████║██║███████╗=========*
+*==========╚══════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝╚══════╝=========*
+OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+''')
 
 # Ask for what to search for
 searchItem = input("What are we searching for today?" + "\n\n")
 
 print("\n\n")
 
-print("#VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV#")
-print("#>>>>>> Start the search queries!!! <<<<<<#")
-print("###########################################")
+print('Opening search in brower tabs!')
 
 ### search socials and search engines
 
@@ -36,27 +36,37 @@ webbrowser.open_new_tab(f"https://facebook.com/search/top/?q={searchItem}")
 # Search LinkedIn
 webbrowser.open_new_tab(f"https://linkedin.com/search/results/all/?keywords={searchItem}")
 
-
-
 ### Ask if user would like to search shodan
 
-shodanResponse = input("\n\n Would you like to search shodan.io? (y/n)")
+shodanResponse = input("\n\nWould you like to search shodan.io? (y/n): ")
 
 if shodanResponse == "Y" or shodanResponse == "y":
     print("Searching shodan.io... \n")
     webbrowser.open_new_tab(f"https://www.shodan.io/search?query={searchItem}")
-    exit()
+
+    ### Display message to tell user that the results are complete
+
+    # Close root tkinter window
+    Tk().withdraw()
+    # Display messagebox with info about results
+    result=tkinter.messagebox.showinfo('Looksie','Results are shown in your web browser in the tabs.')
+
+    quit()
+
 elif shodanResponse == "N" or shodanResponse == "n":
     print("Not searching shodan.io")
-    exit()
+
+    ### Display message to tell user that the results are complete
+
+    # Close root tkinter window
+    Tk().withdraw()
+    # Display messagebox with info about results
+    result=tkinter.messagebox.showinfo('Looksie','Results are shown in your web browser in the tabs.')
+
+    quit()
+
 else:
     print("Not a vaild option. Exiting.")
-    exit()
 
+    quit()
 
-### Display message to tell user that the results are complete
-
-# Close root tkinter window
-Tk().withdraw()
-# Display messagebox with info about results
-result=tkinter.messagebox.showinfo('Looksie','Results are shown in your web browser in the tabs.')
